@@ -1,0 +1,33 @@
+{
+	"name": "TF-2",
+	"image": "tensorflow/tensorflow:2.10.1-gpu",
+	"runArgs": [
+		"--gpus=0"
+	],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"[python]": {
+					"editor.defaultFormatter": "ms-python.autopep8",
+					"editor.formatOnType": true
+				},
+				"autopep8.showNotifications": "always",
+				"pylint.showNotifications": "off"
+			},
+			"extensions": [
+				"ms-python.python",
+				"ms-python.pylint",
+				"ms-python.autopep8",
+				"yzhang.markdown-all-in-one",
+				"shd101wyy.markdown-preview-enhanced",
+				"davidanson.vscode-markdownlint",
+				"joshbolduc.commitlint",
+				"ms-toolsai.jupyter",
+				"natqe.reload",
+				"shardulm94.trailing-spaces",
+				"codezombiech.gitignore"
+			]
+		}
+	},
+	"shutdownAction": "none"
+}
