@@ -11,9 +11,11 @@ import tensorflow as tf
 
 from model import TrainAutoEncoder
 from utils import normalize_pixels, Calculate_filters
+from arguments import args_parser
 
 (trainX, _), (testX, _) = cifar10.load_data()
 
+args = args_parser()
 
 # normalizing the training and test data
 x_train, x_test = normalize_pixels(trainX, testX)
@@ -25,5 +27,5 @@ for comp_ratio in compression_ratios:
     c = Calculate_filters(comp_ratio)
     print(f'---> System Will Train, Compression Ratio: {str(comp_ratio)}. <---')
     _ = TrainAutoEncoder(
-        x_train, nb_epoch=200, comp_ratio=comp_ratio,
-        batch_size=64, c=c, snr=10, learning_rate=1e-3, saver_step=50)
+        x_train, nb_epoch=args.epoch, comp_ratio=comp_ratio,
+        batch_size=args.batch, c=c, snr=args.snr, learning_rate=args.lr, saver_step=50)
