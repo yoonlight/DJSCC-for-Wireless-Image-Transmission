@@ -12,7 +12,7 @@ def args_parser():
                         help="total number of epochs")
     parser.add_argument('--load', type=int, default=0,
                         help='load trained model')
-    parser.add_argument('--cuda', type=int, default=0,
+    parser.add_argument('--cuda', type=str, default=0,
                         help='gpu cuda device')
 
     args = parser.parse_args()

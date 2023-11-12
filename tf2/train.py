@@ -5,6 +5,7 @@ Created on Wed Nov 20 00:39:40 2019
 @author: Danish
 1. Compute pwr combined (Real, Imag), (Extract R & I parts) Generate single distribution, Separate Sending, (R&I)
 """
+import os
 
 from keras.datasets import cifar10
 import tensorflow as tf
@@ -16,6 +17,7 @@ from arguments import args_parser
 (trainX, _), (testX, _) = cifar10.load_data()
 
 args = args_parser()
+os.environ["CUDA_VISIBLE_DEVICES"] = args.cuda
 
 # normalizing the training and test data
 x_train, x_test = normalize_pixels(trainX, testX)
