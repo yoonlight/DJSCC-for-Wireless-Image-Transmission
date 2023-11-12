@@ -12,7 +12,7 @@ from keras.callbacks import TensorBoard, ModelCheckpoint, Callback
 from keras.optimizers import Adam
 
 from metrics import psnr, ssim
-from models.autoencoder import build_model
+from models.autoencoder_compression import build_model
 
 
 class ModelCheckponitsHandler(Callback):
