@@ -14,6 +14,8 @@ def args_parser():
                         help='load trained model')
     parser.add_argument('--cuda', type=str, default=0,
                         help='gpu cuda device')
+    parser.add_argument('--verbose', type=int, default=2,
+                        help='set train verbose')
 
     args = parser.parse_args()
     return args

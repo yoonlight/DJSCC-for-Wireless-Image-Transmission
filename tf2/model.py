@@ -34,7 +34,7 @@ class ModelCheckponitsHandler(Callback):
             print(f'\nModel Saved After {epoch} epochs.')
 
 
-def TrainAutoEncoder(x_train, nb_epoch, comp_ratio, batch_size, c, snr, learning_rate, saver_step=50):
+def TrainAutoEncoder(x_train, nb_epoch, comp_ratio, batch_size, c, snr, learning_rate, saver_step=50, verbose=2):
     ############################### Buliding Encoder ##############################
     ''' Correspondance of different arguments w.r.t to literature: filters = K, kernel_size = FxF, strides = S'''
     autoencoder = build_model(c=c, snr=snr)
@@ -61,5 +61,5 @@ def TrainAutoEncoder(x_train, nb_epoch, comp_ratio, batch_size, c, snr, learning
         comp_ratio, snr, autoencoder, step=saver_step)
     history = autoencoder.fit(
         x=x_train, y=x_train, batch_size=batch_size, epochs=nb_epoch,
-        callbacks=[tb, checkpoint, ckpt], validation_split=0.1)
+        callbacks=[tb, checkpoint, ckpt], validation_split=0.1, verbose=verbose)
     return history

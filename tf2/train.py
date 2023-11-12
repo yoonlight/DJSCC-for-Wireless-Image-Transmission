@@ -30,4 +30,5 @@ for comp_ratio in compression_ratios:
     print(f'---> System Will Train, Compression Ratio: {str(comp_ratio)}. <---')
     _ = TrainAutoEncoder(
         x_train, nb_epoch=args.epoch, comp_ratio=comp_ratio,
-        batch_size=args.batch, c=c, snr=args.snr, learning_rate=args.lr, saver_step=50)
+        batch_size=args.batch, c=c, snr=args.snr, learning_rate=args.lr,
+        verbose=args.verbose, saver_step=50)
